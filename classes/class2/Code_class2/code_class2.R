@@ -89,7 +89,7 @@ for(i in 1:nrow(student.names))
     indexi = grep(namei,HW.Filenames);
     analysis.result[i,2] = length(indexi)>0;
     analysis.result[i,3] = length(indexi);
-    namei.files = HW.Filenames[indexi[]];
+    namei.files = HW.Filenames[indexi];
     is_normali = length(grep("DSJJYB",namei.files))>0;
     analysis.result[i,4] = is_normali;
  # }
