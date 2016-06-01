@@ -56,7 +56,9 @@ nrow(boxmojodata.same2)
 
 
 #sort the two datasets for combine them
+#install.packages("taRifx") #run this code if the package is not installed
 library(taRifx) #install this library if you don't have it
+
 imdbdata.same2.sort = sort.data.frame(imdbdata.same2,formula=~title+year);
 boxmojodata.same2.sort = sort.data.frame(boxmojodata.same2,formula=~title+year);
 final.dataset = cbind(imdbdata.same2.sort,boxmojodata.same2.sort);
