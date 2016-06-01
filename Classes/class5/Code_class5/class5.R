@@ -3,7 +3,8 @@ boxmojodata = read.csv("boxmojodata.csv");
 imdbdata = read.csv("imdbdata.csv");
 
 #extract the year information and month, maybe you can use it later
-boxmojodata$release_date2 = as.Date(boxmojodata$release_date,"%d-%b-%y");
+boxmojodata$release_date = as.character(boxmojodata$release_date);
+boxmojodata$release_date2 = as.Date(boxmojodata$release_date);
 boxmojodata$year = format(boxmojodata$release_date2,"%Y"); 
 boxmojodata$month = format(boxmojodata$release_date2,"%m");
 boxmojodata$day = format(boxmojodata$release_date2,"%d");
@@ -63,6 +64,7 @@ final.dataset$director = as.character(final.dataset$director);
 final.dataset$distributor = as.factor(final.dataset$distributor);
 #use xtabs for description
 xtabs(total_gross~director,final.dataset)
-xtabs(total_gross~distributor,final.dataset)
 
 #use aggregate for description
+director.average = aggregate(total_gross~director,data=final.dataset,mean);
+head(director.average)
